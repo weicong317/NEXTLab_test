@@ -1,0 +1,27 @@
+<div id="filterrific_results">
+
+  <div>
+    <%= page_entries_info services %>
+  </div>
+
+  <table>
+    <tr>
+      <th><%= filterrific_sorting_link(@filterrific, :name) %></th>
+      <th>Country</th>
+      <th>Price</th>
+      <th>Cost</th>
+      <th>Registered at</th>
+    </tr>
+    <% services.each do |service| %>
+      <tr>
+        <td><%= service.name %></td>
+        <td><%= service.country %></td>
+        <td><%= service.price %></td>
+        <td><%= service.cost %></td>
+        <td><%= service.created_at %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+<%= paginate services %>

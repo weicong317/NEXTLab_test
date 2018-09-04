@@ -63,3 +63,12 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Requirement and to make filter easier
 gem 'filterrific'
+
+# Pagination
+gem 'kaminari'
+
+# TO use jquery
+gem 'jquery-rails'
+
+# Seeding purpose
+gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
