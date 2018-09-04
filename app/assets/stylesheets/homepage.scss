@@ -1,3 +1,15 @@
 // Place all the styles related to the homepage controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#cover_page {
+  height: 91.7vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#bg_image {
+  background-image: url(ai-codes-coding-247791.jpeg);
+}

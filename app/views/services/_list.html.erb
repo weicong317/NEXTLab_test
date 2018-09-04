@@ -1,27 +1,40 @@
 <div id="filterrific_results">
+  <div class="container">
+    <div class="row bg-secondary text-white rounded mb-3">
+      <div class="col my-1 pl-1">
+        <%= page_entries_info services %>
+      </div>
 
-  <div>
-    <%= page_entries_info services %>
+      <div class="col my-1 text-right">
+        <%= button_to "Reset Filter", services_index_path, method: :get, class: "btn btn-light btn-sm" %>
+      </div>
+    </div>
+    
+    <div class="row">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col"><%= filterrific_sorting_link(@filterrific, :name) %></th>
+            <th scope="col"><%= filterrific_sorting_link(@filterrific, :country) %></th>
+            <th scope="col"><%= filterrific_sorting_link(@filterrific, :price) %></th>
+            <th scope="col"><%= filterrific_sorting_link(@filterrific, :cost) %></th>
+            <th scope="col"><%= filterrific_sorting_link(@filterrific, :created_at) %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% services.each do |service| %>
+            <tr>
+              <td><%= service.name %></td>
+              <td><%= service.country %></td>
+              <td><%= service.price %></td>
+              <td><%= service.cost %></td>
+              <td><%= service.created_at.strftime("%m/%d/%Y") %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    
+    <%= paginate services, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm" %>
   </div>
-
-  <table>
-    <tr>
-      <th><%= filterrific_sorting_link(@filterrific, :name) %></th>
-      <th>Country</th>
-      <th>Price</th>
-      <th>Cost</th>
-      <th>Registered at</th>
-    </tr>
-    <% services.each do |service| %>
-      <tr>
-        <td><%= service.name %></td>
-        <td><%= service.country %></td>
-        <td><%= service.price %></td>
-        <td><%= service.cost %></td>
-        <td><%= service.created_at %></td>
-      </tr>
-    <% end %>
-  </table>
 </div>
-
-<%= paginate services %>

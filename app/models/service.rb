@@ -49,16 +49,25 @@ class Service < ApplicationRecord
       ['Name (z-a)', 'name_desc'],
       ['Country (a-z)', 'country_name_asc'],
       ['Country (z-a)', 'country_name_desc'],
-      ['Price (lowest first)', 'created_at_asc'],
-      ['Price (highest first)', 'created_at_desc'],
-      ['Cost (lowest first)', 'created_at_asc'],
-      ['Cost (highest first)', 'created_at_desc'],
+      ['Price (lowest first)', 'price_asc'],
+      ['Price (highest first)', 'price_desc'],
+      ['Cost (lowest first)', 'cost_asc'],
+      ['Cost (highest first)', 'cost_desc'],
       ['Created date (oldest first)', 'created_at_asc'],
       ['Created date (newest first)', 'created_at_desc']
     ]
   end
 
   def self.options_for_select
-    order('country').map {|country| [country]}
+    bigArray = []
+    
+    order('country').each do |object|
+      smallArray = [object.country]
+      if smallArray.in?(bigArray) === false
+        bigArray << smallArray
+      end        
+    end
+
+    return bigArray
   end
 end

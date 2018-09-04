@@ -6,7 +6,8 @@ class ServicesController < ApplicationController
       select_options: {
         sorted_by: Service.options_for_sorted_by, 
         with_country: Service.options_for_select
-      }
+      },
+      persistence_id: false
     ) or return
     @services = @filterrific.find.page(params[:page])
 

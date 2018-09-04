@@ -66,6 +66,7 @@ gem 'filterrific'
 
 # Pagination
 gem 'kaminari'
+gem 'bootstrap4-kaminari-views'
 
 # TO use jquery
 gem 'jquery-rails'
